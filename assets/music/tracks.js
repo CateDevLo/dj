@@ -5,6 +5,6 @@ window.CATE_TRACKS = [
     duration: "2:39:16",
     year: "2026",
     type: "Original",
-    src: "https://github.com/CateDevLo/dj/releases/download/music/Live.MIXSET.1.mp3",
+    src: "https://ia601608.us.archive.org/28/items/live-mixset-1/Live%20MIXSET%20%231.mp3",
   },
 ];
