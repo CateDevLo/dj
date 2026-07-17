@@ -1,0 +1,1825 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CATE | DJ & Music Producer</title>
+    <meta
+      name="description"
+      content="Portfolio website template for a DJ, musician, ghost producer and music service brand."
+    />
+    <style>
+      :root {
+        --bg: #050608;
+        --panel: #0b0d12;
+        --panel-2: #10131a;
+        --text: #f6f7fb;
+        --muted: #b4bac7;
+        --line: rgba(255, 255, 255, 0.15);
+        --cyan: #39d6ff;
+        --red: #ff2f55;
+        --gold: #f4c05f;
+        --green: #54e0a7;
+        --max: 1080px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.65;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+        background-size: 42px 42px;
+        opacity: 0.28;
+        z-index: -1;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(5, 6, 8, 0.82);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        max-width: var(--max);
+        min-height: 72px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        min-width: 0;
+      }
+
+      .brand-logo {
+        width: clamp(112px, 15vw, 160px);
+        height: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .nav-links a {
+        padding: 11px 10px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        border-bottom: 2px solid transparent;
+        transition: color 0.18s ease, border-color 0.18s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--text);
+        border-color: var(--cyan);
+      }
+
+      .menu-button {
+        display: none;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 1px solid var(--line);
+        background: #090b10;
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      .menu-button span,
+      .menu-button::before,
+      .menu-button::after {
+        content: "";
+        width: 18px;
+        height: 2px;
+        background: currentColor;
+        display: block;
+        transition: transform 0.18s ease, opacity 0.18s ease;
+      }
+
+      .menu-button {
+        gap: 4px;
+        flex-direction: column;
+      }
+
+      .menu-open .menu-button::before {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .menu-open .menu-button span {
+        opacity: 0;
+      }
+
+      .menu-open .menu-button::after {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      .hero {
+        min-height: 92vh;
+        position: relative;
+        display: grid;
+        place-items: end center;
+        padding: 140px 24px 72px;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(5, 6, 8, 0.28) 0%, rgba(5, 6, 8, 0.38) 45%, #050608 100%),
+          url("assets/cate-stage-cate.png") center 30% / cover;
+        z-index: -2;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 50% 65%, rgba(57, 214, 255, 0.2), transparent 31%),
+          linear-gradient(90deg, rgba(255, 47, 85, 0.14), transparent 32%, transparent 68%, rgba(57, 214, 255, 0.14));
+        mix-blend-mode: screen;
+        opacity: 0.6;
+        z-index: -1;
+      }
+
+      .hero-inner {
+        width: min(var(--max), 100%);
+        text-align: center;
+        transform: translateY(38px);
+      }
+
+      .hero-logo {
+        display: block;
+        width: min(620px, 72vw);
+        max-height: 220px;
+        margin: 0 auto;
+        object-fit: contain;
+        filter: drop-shadow(0 0 22px rgba(57, 214, 255, 0.34))
+          drop-shadow(0 7px 0 rgba(255, 47, 85, 0.22));
+        user-select: none;
+      }
+
+      .hero-tagline,
+      .section-kicker {
+        margin: 20px 0 0;
+        color: var(--text);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .hero-copy {
+        max-width: 690px;
+        margin: 20px auto 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .socials {
+        margin-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .socials a {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        border: 3px solid rgba(255, 255, 255, 0.92);
+        border-radius: 50%;
+        background: rgba(8, 10, 14, 0.24);
+        color: var(--text);
+        font-size: 0;
+        line-height: 0;
+        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      }
+
+      .socials svg {
+        width: 26px;
+        height: 26px;
+        display: block;
+      }
+
+      .social-icon.facebook {
+        width: 24px;
+        height: 24px;
+        transform: translateX(1px);
+      }
+
+      .social-icon.instagram {
+        width: 25px;
+        height: 25px;
+      }
+
+      .social-icon.tiktok {
+        width: 25px;
+        height: 25px;
+        transform: translateX(1px);
+      }
+
+      .socials a:hover {
+        transform: translateY(-3px);
+        border-color: #fff;
+        background: rgba(57, 214, 255, 0.13);
+      }
+
+      section {
+        padding: 86px 24px;
+      }
+
+      .section-inner {
+        width: min(var(--max), 100%);
+        margin: 0 auto;
+      }
+
+      .section-header {
+        display: grid;
+        gap: 14px;
+        margin-bottom: 34px;
+      }
+
+      .section-kicker {
+        margin: 0;
+        color: var(--cyan);
+        font-size: 12px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(31px, 5vw, 64px);
+        line-height: 0.98;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.03fr 0.97fr;
+        gap: 34px;
+        align-items: start;
+      }
+
+      .bio {
+        display: grid;
+        gap: 18px;
+      }
+
+      .bio p {
+        margin: 0;
+        color: #d8dce6;
+      }
+
+      .bio strong {
+        color: var(--text);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .stat,
+      .track,
+      .service,
+      .timeline-block {
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 46%),
+          var(--panel);
+      }
+
+      .stat {
+        min-height: 142px;
+        padding: 22px;
+        display: grid;
+        align-content: end;
+        gap: 10px;
+      }
+
+      .stat b {
+        font-size: 32px;
+        line-height: 1;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .press-kit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: fit-content;
+        margin-top: 10px;
+        padding: 12px 16px;
+        border: 1px solid rgba(57, 214, 255, 0.55);
+        color: var(--text);
+        background: rgba(57, 214, 255, 0.1);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .tracks-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .tracks-grid:empty,
+      .timeline:empty {
+        display: none;
+      }
+
+      .music-player {
+        width: min(760px, 100%);
+        margin: 0 auto 34px;
+      }
+
+      .player-card {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 14px;
+        background: #444;
+        color: #f7f7f7;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+      }
+
+      .player-card.is-empty .mix-cover,
+      .player-card.is-empty .mix-platform {
+        display: none;
+      }
+
+      .player-card.is-empty .mix-hero {
+        grid-template-columns: minmax(0, 1fr) auto;
+        padding: 30px;
+      }
+
+      .player-card.is-empty .playlist {
+        max-height: none;
+        padding: 0 30px 30px;
+      }
+
+      .mix-hero {
+        position: relative;
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 28px;
+        padding: 28px 30px;
+        background: #565656;
+      }
+
+      .mix-cover {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #101010;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.36);
+      }
+
+      .mix-cover::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("assets/hero-stage.png");
+        background-size: cover;
+        background-position: center;
+        filter: grayscale(1) contrast(1.16);
+        transform: scale(1.06);
+      }
+
+      .cover-chip,
+      .cover-spotify,
+      .mix-platform {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: #fff;
+        color: #222;
+      }
+
+      .cover-chip {
+        top: 10px;
+        right: 10px;
+        gap: 4px;
+        grid-template-columns: auto auto;
+        padding: 4px 7px;
+        font-size: 6px;
+        font-weight: 900;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .cover-spotify {
+        left: 10px;
+        bottom: 10px;
+        width: 24px;
+        height: 24px;
+      }
+
+      .spotify-glyph {
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+
+      .mix-info {
+        min-width: 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .mix-info h3 {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(25px, 4vw, 34px);
+        line-height: 1.04;
+        letter-spacing: 0;
+      }
+
+      .mix-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #d8d8d8;
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .preview-pill {
+        padding: 3px 7px;
+        border-radius: 3px;
+        background: #0d0d0d;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .save-link {
+        width: fit-content;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .save-link::before {
+        content: "+";
+        width: 26px;
+        height: 26px;
+        display: grid;
+        place-items: center;
+        border: 2px solid #fff;
+        border-radius: 999px;
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .current-track {
+        margin: 0;
+        color: #d5d5d5;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .mix-platform {
+        top: 30px;
+        right: 30px;
+        width: 30px;
+        height: 30px;
+      }
+
+      .mix-controls {
+        align-self: end;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding-top: 76px;
+      }
+
+      .mini-control {
+        border: 0;
+        background: transparent;
+        color: #f3f3f3;
+        cursor: pointer;
+        font-size: 25px;
+        line-height: 1;
+      }
+
+      .more-control {
+        letter-spacing: 4px;
+      }
+
+      .control-button {
+        width: 58px;
+        height: 58px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        border-radius: 999px;
+        background: #fff;
+        color: #4c4c4c;
+        cursor: pointer;
+        font-size: 25px;
+        line-height: 1;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+      }
+
+      .control-button:disabled,
+      .mini-control:disabled {
+        cursor: not-allowed;
+        opacity: 0.46;
+      }
+
+      .audio-core {
+        display: none;
+      }
+
+      .progress-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 14px;
+        padding: 0 28px 12px;
+        background: #464646;
+      }
+
+      .progress {
+        width: 100%;
+        height: 4px;
+        accent-color: var(--cyan);
+      }
+
+      .timecode {
+        min-width: 78px;
+        color: #f1f1f1;
+        font-size: 12px;
+        font-weight: 800;
+        text-align: right;
+      }
+
+      .playlist {
+        display: grid;
+        gap: 0;
+        max-height: 340px;
+        overflow: auto;
+        padding: 16px 26px 18px;
+        background: #454545;
+        scrollbar-color: #656565 transparent;
+      }
+
+      .playlist-empty {
+        margin: 0;
+        color: #d7d7d7;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .playlist button {
+        width: 100%;
+        min-height: 62px;
+        padding: 8px 0;
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr) 58px;
+        align-items: start;
+        gap: 14px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: #fff;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .playlist button:hover,
+      .playlist button.is-playing {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .playlist-index,
+      .playlist-size {
+        color: #f0f0f0;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .playlist-title {
+        min-width: 0;
+        overflow: hidden;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 800;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .playlist-copy {
+        min-width: 0;
+        display: grid;
+        gap: 2px;
+      }
+
+      .playlist-artist {
+        min-width: 0;
+        overflow: hidden;
+        color: #d3d3d3;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.35;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .track {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-height: 100%;
+      }
+
+      .cover {
+        aspect-ratio: 1 / 1;
+        background-image: url("assets/album-grid.png");
+        background-size: 200% 200%;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .cover.one {
+        background-position: 0 0;
+      }
+
+      .cover.two {
+        background-position: 100% 0;
+      }
+
+      .cover.three {
+        background-position: 0 100%;
+      }
+
+      .cover.four {
+        background-position: 100% 100%;
+      }
+
+      .track-body,
+      .service,
+      .timeline-block {
+        padding: 22px;
+      }
+
+      .track h3,
+      .service h3,
+      .timeline-block h3 {
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.25;
+        text-transform: uppercase;
+      }
+
+      .track p,
+      .service p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .tag {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        padding: 5px 8px;
+        color: #dde2ed;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .timeline {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: minmax(280px, 420px);
+        gap: 16px;
+      }
+
+      .timeline-block ul {
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        grid-auto-rows: 260px;
+        gap: 14px;
+      }
+
+      .photo {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #0a0c11;
+      }
+
+      .photo::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("assets/hero-stage.png");
+        background-size: cover;
+        background-position: center;
+        filter: saturate(1.15) contrast(1.05);
+        transform: scale(1.02);
+      }
+
+      .photo::after {
+        content: attr(data-label);
+        position: absolute;
+        left: 14px;
+        bottom: 12px;
+        padding: 5px 8px;
+        background: rgba(5, 6, 8, 0.68);
+        color: var(--text);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .photo.tall {
+        grid-row: span 2;
+      }
+
+      .photo.wide {
+        grid-column: span 2;
+      }
+
+      .photo.portrait::before {
+        background-image: url("assets/gallery-portrait.jpg");
+        background-position: center 18%;
+      }
+
+      .photo.crowd-blue::before {
+        background-image: url("assets/gallery-crowd-blue.png");
+        background-position: center;
+      }
+
+      .photo.booth::before {
+        background-image: url("assets/gallery-booth.jpg");
+        background-position: center 42%;
+      }
+
+      .photo.live-cate::before {
+        background-image: url("assets/gallery-live-cate.png");
+        background-position: center;
+      }
+
+      #services {
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+        background: #050608;
+      }
+
+      #services::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(90deg, rgba(5, 6, 8, 0.78), rgba(5, 6, 8, 0.42) 50%, rgba(5, 6, 8, 0.72)),
+          linear-gradient(180deg, rgba(5, 6, 8, 0.1), rgba(5, 6, 8, 0.72)),
+          url("assets/hero-stage.png");
+        background-size: cover;
+        background-position: center;
+        filter: saturate(1.2) contrast(1.05);
+      }
+
+      #services::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 73% 32%, rgba(255, 47, 85, 0.28), transparent 32%),
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: auto, 72px 72px, 72px 72px;
+        pointer-events: none;
+      }
+
+      .services-panel {
+        position: relative;
+        z-index: 1;
+        width: min(1720px, 100%);
+        margin: 0 auto;
+        padding: 92px 5vw 84px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(32px, 5vw, 74px);
+      }
+
+      .service-column {
+        min-width: 0;
+      }
+
+      .service-title {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.86);
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: clamp(18px, 1.65vw, 27px);
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .service-subtitle {
+        margin: 16px 0 32px;
+        color: rgba(255, 255, 255, 0.78);
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: clamp(17px, 1.45vw, 24px);
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .service-options {
+        display: grid;
+        gap: 28px;
+        margin: 0 0 46px;
+      }
+
+      .service-option {
+        min-height: 54px;
+        display: grid;
+        place-items: center;
+        padding: 13px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.86);
+        border-radius: 5px;
+        background: rgba(5, 6, 8, 0.24);
+        color: rgba(255, 255, 255, 0.94);
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: clamp(14px, 1.15vw, 20px);
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+
+      .service-copy {
+        display: grid;
+        gap: 30px;
+        color: rgba(255, 255, 255, 0.86);
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        font-size: clamp(15px, 1.02vw, 18px);
+        font-weight: 400;
+        line-height: 1.65;
+      }
+
+      .service-copy p {
+        margin: 0;
+      }
+
+      .service-copy b {
+        display: block;
+        margin-bottom: 4px;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 0.98em;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .button {
+        align-self: end;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 11px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: #f6f7fb;
+        color: #050608;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--text);
+      }
+
+      footer {
+        padding: 32px 24px 46px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        text-align: center;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 900px) {
+        .menu-button {
+          display: inline-flex;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 72px;
+          left: 0;
+          right: 0;
+          display: grid;
+          gap: 0;
+          padding: 8px 24px 18px;
+          background: rgba(5, 6, 8, 0.96);
+          border-bottom: 1px solid var(--line);
+          transform: translateY(-125%);
+          transition: transform 0.2s ease;
+        }
+
+        .menu-open .nav-links {
+          transform: translateY(0);
+        }
+
+        .nav-links a {
+          width: 100%;
+          padding: 14px 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .about-grid,
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .services-panel {
+          padding: 82px 28px 72px;
+        }
+
+        .service-column + .service-column {
+          margin-top: 16px;
+        }
+
+        .mix-hero {
+          grid-template-columns: 138px minmax(0, 1fr);
+          gap: 20px;
+          padding: 24px;
+        }
+
+        .player-card.is-empty .mix-hero {
+          grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .mix-controls {
+          grid-column: 2;
+          justify-self: end;
+          padding-top: 0;
+        }
+
+        .mix-platform {
+          top: 24px;
+          right: 24px;
+        }
+
+        .tracks-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          padding: 0 16px;
+        }
+
+        .brand-logo {
+          width: 120px;
+        }
+
+        .hero {
+          min-height: 88vh;
+          padding: 116px 18px 58px;
+        }
+
+        .hero-inner {
+          transform: translateY(14px);
+        }
+
+        .hero-copy {
+          font-size: 15px;
+        }
+
+        .hero-logo {
+          width: min(360px, 82vw);
+        }
+
+        section {
+          padding: 68px 18px;
+        }
+
+        .services-panel {
+          padding: 72px 18px 64px;
+        }
+
+        .service-title,
+        .service-subtitle {
+          text-align: left;
+        }
+
+        .service-subtitle {
+          margin: 10px 0 24px;
+        }
+
+        .service-options {
+          gap: 16px;
+          margin-bottom: 34px;
+        }
+
+        .service-option {
+          min-height: 50px;
+          justify-items: start;
+          text-align: left;
+        }
+
+        .service-copy {
+          gap: 22px;
+          line-height: 1.58;
+        }
+
+        .stats,
+        .tracks-grid,
+        .timeline,
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-auto-rows: 260px;
+        }
+
+        .photo.tall,
+        .photo.wide {
+          grid-row: span 1;
+          grid-column: span 1;
+        }
+
+        .hero-tagline,
+        .section-kicker {
+          font-size: 12px;
+          letter-spacing: 0.12em;
+        }
+
+        .socials a {
+          width: 48px;
+          height: 48px;
+        }
+
+        .socials svg,
+        .social-icon.facebook,
+        .social-icon.instagram,
+        .social-icon.tiktok {
+          width: 23px;
+          height: 23px;
+        }
+
+        .mix-hero {
+          grid-template-columns: 96px minmax(0, 1fr);
+          gap: 14px;
+          padding: 18px;
+        }
+
+        .player-card.is-empty .mix-hero {
+          grid-template-columns: 1fr;
+        }
+
+        .mix-info h3 {
+          font-size: 22px;
+        }
+
+        .mix-meta,
+        .save-link {
+          font-size: 13px;
+        }
+
+        .mix-controls {
+          grid-column: 1 / -1;
+          justify-self: end;
+          gap: 13px;
+        }
+
+        .control-button {
+          width: 50px;
+          height: 50px;
+        }
+
+        .mini-control {
+          font-size: 21px;
+        }
+
+        .mix-platform {
+          width: 26px;
+          height: 26px;
+          top: 18px;
+          right: 18px;
+        }
+
+        .progress-row {
+          grid-template-columns: 1fr;
+          padding: 0 18px 10px;
+        }
+
+        .timecode {
+          min-width: 0;
+          text-align: left;
+        }
+
+        .playlist {
+          max-height: 310px;
+          padding: 13px 16px 15px;
+        }
+
+        .playlist button {
+          grid-template-columns: 24px minmax(0, 1fr) 48px;
+          gap: 10px;
+        }
+
+        .playlist-title {
+          font-size: 14px;
+        }
+
+        .playlist-artist {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#about" aria-label="CATE home">
+          <img class="brand-logo" src="assets/cate-white-logo.png" alt="CATE" />
+        </a>
+        <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+        </button>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#music">Music</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#services">Services</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Artist introduction">
+        <div class="hero-inner">
+          <img class="hero-logo" src="assets/cate-white-logo.png" alt="CATE" />
+          <p class="hero-tagline">DJ | Musician | Ghost Producer</p>
+          <p class="hero-copy">
+            Trance, Progressive and EDM producer shaping club-ready emotion with a Vietnamese pulse.
+          </p>
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg class="social-icon facebook" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M13.7 20v-7h2.4l.4-3h-2.8V8.2c0-.9.3-1.5 1.6-1.5h1.5V4.1c-.7-.1-1.6-.2-2.4-.2-2.6 0-4.2 1.5-4.2 4.2V10H7.8v3h2.4v7h3.5Z"
+                />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg class="social-icon instagram" viewBox="0 0 24 24" aria-hidden="true">
+                <rect
+                  x="4"
+                  y="4"
+                  width="16"
+                  height="16"
+                  rx="5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                />
+                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2.2" />
+                <circle cx="17.2" cy="6.8" r="1.35" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg class="social-icon tiktok" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M15.5 4.1c.4 2.2 1.7 3.5 3.9 3.7v3c-1.3 0-2.6-.4-3.8-1.2v5.3c0 4.8-3.8 7.1-7.3 5.6-3.5-1.5-4.1-6.4-.8-8.4.9-.5 2-.8 3.2-.8v3.2c-.6 0-1 .2-1.4.4-1.2.7-1.2 2.5 0 3.2 1.4.7 3.2-.3 3.2-2.4V4.1h3Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="section-kicker">About</p>
+            <h2>Producer Profile</h2>
+            <p class="lead">
+              A dark, direct artist portfolio inspired by DJ press pages: fast to scan, music-first, and ready
+              for bookings, releases, press kits and live music previews.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="bio">
+              <p>
+                <strong>CATE</strong> is a DJ, musician and record producer specializing in Trance,
+                Progressive and EDM. The project blends festival-scale leads, club basslines and melodic
+                storytelling for radio shows, dance floors and custom brand music.
+              </p>
+              <p>
+                From early electronic influences to professional releases, the sound is built around emotional
+                breakdowns, driving drops and polished mixes. The artist identity stays modern, direct and
+                performance-focused.
+              </p>
+              <p>
+                <strong>Tiếng Việt:</strong> CATE là nghệ sĩ DJ và nhà sản xuất âm nhạc theo đuổi Trance,
+                Progressive và EDM. Website này phù hợp cho nghệ sĩ cần giới thiệu tiểu sử, nhạc nổi bật,
+                hình ảnh biểu diễn và dịch vụ sản xuất âm nhạc.
+              </p>
+              <a class="press-kit" href="mailto:hello@example.com">▶ Booking Contact</a>
+            </div>
+
+            <div class="stats" aria-label="Artist highlights">
+              <div class="stat">
+                <b>8+</b>
+                <span>Years producing</span>
+              </div>
+              <div class="stat">
+                <b>40+</b>
+                <span>Original releases</span>
+              </div>
+              <div class="stat">
+                <b>25+</b>
+                <span>Radio supports</span>
+              </div>
+              <div class="stat">
+                <b>12</b>
+                <span>Brand projects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="music">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="section-kicker">Music</p>
+            <h2>Highlight Tracks</h2>
+            <p class="lead">
+              Feature releases, remixes and live mixes in the same clean, archive-like format as a classic
+              artist page.
+            </p>
+          </div>
+
+          <div class="music-player">
+            <div class="player-card">
+              <div class="mix-hero">
+                <div class="mix-cover" aria-hidden="true">
+                  <span class="cover-chip">
+                    <svg class="spotify-glyph" viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.6 14.4a.7.7 0 0 1-1 .2c-2.7-1.7-6.1-2-10.1-1.1a.7.7 0 0 1-.3-1.4c4.3-1 8.1-.5 11.1 1.3.3.2.4.7.3 1Zm1.2-2.8a.9.9 0 0 1-1.2.3c-3.1-1.9-7.9-2.5-11.5-1.3a.9.9 0 0 1-.6-1.7c4.2-1.3 9.4-.7 13 1.5.4.2.5.8.3 1.2Zm.1-3a.9.9 0 0 1-.5-.1c-3.7-2.2-9.8-2.4-13.3-1.3a1 1 0 0 1-.6-2c4.1-1.2 10.8-1 15.1 1.5.5.3.6.9.3 1.4-.2.3-.6.5-1 .5Z"
+                      />
+                    </svg>
+                    Listen now
+                  </span>
+                  <span class="cover-spotify">
+                    <svg class="spotify-glyph" viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.6 14.4a.7.7 0 0 1-1 .2c-2.7-1.7-6.1-2-10.1-1.1a.7.7 0 0 1-.3-1.4c4.3-1 8.1-.5 11.1 1.3.3.2.4.7.3 1Zm1.2-2.8a.9.9 0 0 1-1.2.3c-3.1-1.9-7.9-2.5-11.5-1.3a.9.9 0 0 1-.6-1.7c4.2-1.3 9.4-.7 13 1.5.4.2.5.8.3 1.2Zm.1-3a.9.9 0 0 1-.5-.1c-3.7-2.2-9.8-2.4-13.3-1.3a1 1 0 0 1-.6-2c4.1-1.2 10.8-1 15.1 1.5.5.3.6.9.3 1.4-.2.3-.6.5-1 .5Z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+
+                <div class="mix-info">
+                  <h3>Cate Music Mix</h3>
+                  <p class="current-track" id="currentTrack">No track</p>
+                </div>
+
+                <span class="mix-platform" aria-hidden="true">
+                  <svg class="spotify-glyph" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.6 14.4a.7.7 0 0 1-1 .2c-2.7-1.7-6.1-2-10.1-1.1a.7.7 0 0 1-.3-1.4c4.3-1 8.1-.5 11.1 1.3.3.2.4.7.3 1Zm1.2-2.8a.9.9 0 0 1-1.2.3c-3.1-1.9-7.9-2.5-11.5-1.3a.9.9 0 0 1-.6-1.7c4.2-1.3 9.4-.7 13 1.5.4.2.5.8.3 1.2Zm.1-3a.9.9 0 0 1-.5-.1c-3.7-2.2-9.8-2.4-13.3-1.3a1 1 0 0 1-.6-2c4.1-1.2 10.8-1 15.1 1.5.5.3.6.9.3 1.4-.2.3-.6.5-1 .5Z"
+                    />
+                  </svg>
+                </span>
+
+                <div class="mix-controls">
+                  <button class="mini-control" id="prevTrackButton" type="button" aria-label="Previous track">‹</button>
+                  <button class="mini-control" id="nextTrackButton" type="button" aria-label="Next track">›</button>
+                  <button class="mini-control more-control" type="button" aria-label="More options">...</button>
+                  <button class="control-button" id="playPauseButton" type="button" disabled aria-label="Play">▶</button>
+                </div>
+              </div>
+
+              <audio
+                class="audio-core"
+                id="audioPlayer"
+                preload="metadata"
+                controlsList="nodownload noplaybackrate"
+                oncontextmenu="return false"
+              ></audio>
+              <div class="progress-row" aria-label="Music player progress" oncontextmenu="return false">
+                <input class="progress" id="trackProgress" type="range" min="0" max="1000" value="0" disabled />
+                <span class="timecode" id="timecode">0:00 / 0:00</span>
+              </div>
+              <div class="playlist" id="playlist">
+                <p class="playlist-empty">No track</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tracks-grid" id="trackCards"></div>
+          <div class="timeline" id="releaseTimeline"></div>
+        </div>
+      </section>
+
+      <section id="gallery">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="section-kicker">Gallery</p>
+            <h2>Live Energy</h2>
+            <p class="lead">
+              A compact image wall for stage photos, artwork, posters and behind-the-scenes moments.
+            </p>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="photo portrait tall" data-label="CATE"></div>
+            <div class="photo crowd-blue" data-label="Live Crowd"></div>
+            <div class="photo live-cate" data-label="CATE Live"></div>
+            <div class="photo booth wide" data-label="Booth Moment"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="services-panel">
+          <div class="services-grid">
+            <article class="service-column">
+              <h2 class="service-title">Mixing & Mastering</h2>
+              <p class="service-subtitle">(Hoàn thiện bản phối)</p>
+
+              <div class="service-options" aria-label="Mixing and mastering services">
+                <span class="service-option">Single WAV & MP3 Mastering</span>
+                <span class="service-option">Stem Mixing & Mastering</span>
+                <span class="service-option">FL Studio & Ableton Live Tutoring</span>
+                <span class="service-option">Key Moment Music</span>
+              </div>
+
+              <div class="service-copy">
+                <p>
+                  <b>[English]</b>
+                  I bring extensive experience within the Trance and Progressive electronic music scene. The
+                  tracks I have contributed to as a ghost producer, as well as projects where I handled mixing
+                  and mastering, have received support from respected labels and tastemakers.
+                </p>
+                <p>
+                  As my work is conducted privately, I am able to share selected examples of my own productions
+                  upon request.
+                </p>
+                <p>
+                  <b>[Vietnamese]</b>
+                  Mình có nhiều kinh nghiệm trong lĩnh vực sản xuất EDM, đặc biệt chuyên sâu về Trance và
+                  Progressive. Những dự án mình tham gia với vai trò ghost producer, cùng các bản nhạc mình đảm
+                  nhiệm mixing và mastering, đã nhận được sự ủng hộ từ nhiều bên uy tín.
+                </p>
+                <p>
+                  Do tính chất làm việc riêng tư, mình có thể chia sẻ các ví dụ chọn lọc từ những sản phẩm của
+                  chính mình khi được yêu cầu.
+                </p>
+              </div>
+            </article>
+
+            <article class="service-column">
+              <h2 class="service-title">Ghost & Custom Music Production</h2>
+              <p class="service-subtitle">(Sản xuất âm nhạc theo yêu cầu)</p>
+
+              <div class="service-options" aria-label="Custom music production services">
+                <span class="service-option">Creating a Track from Scratch</span>
+                <span class="service-option">Rework & Remaster Your Track</span>
+                <span class="service-option">Melody & Chords Creation</span>
+                <span class="service-option">Remix & Produce Your Track</span>
+              </div>
+
+              <div class="service-copy">
+                <p>
+                  <b>[English]</b>
+                  I specialize in crafting high-quality tracks from the ground up, as well as refining and
+                  elevating existing ideas based on your creative vision and references. I value honest,
+                  constructive feedback, highlighting your track's strengths and giving clear direction to help
+                  it reach its full potential.
+                </p>
+                <p>
+                  My expertise spans Trance sub-genres including Progressive Trance, Uplifting Trance and
+                  Psy-Trance, alongside Progressive House, Deep House, Club House and additional genres upon
+                  request.
+                </p>
+                <p>
+                  <b>[Vietnamese]</b>
+                  Mình chuyên sản xuất những bản nhạc chất lượng cao từ con số không, đồng thời phát triển và
+                  nâng tầm các ý tưởng sẵn có dựa trên định hướng và tài liệu tham khảo của bạn. Mình luôn đề cao
+                  phản hồi trung thực và mang tính xây dựng để sản phẩm đạt tiềm năng tốt nhất.
+                </p>
+                <p>
+                  Chuyên môn của mình bao phủ nhiều tiểu thể loại Trance như Progressive Trance, Uplifting
+                  Trance, Psy-Trance, bên cạnh Progressive House, Deep House, Club House và các thể loại khác theo
+                  yêu cầu.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>COPYRIGHT © 2026 CATE</footer>
+
+    <script src="assets/music/tracks.js"></script>
+    <script>
+      const header = document.querySelector(".site-header");
+      const menuButton = document.querySelector(".menu-button");
+      const navLinks = [...document.querySelectorAll(".nav-links a")];
+      const sections = navLinks.map((link) => document.querySelector(link.getAttribute("href")));
+      const audioPlayer = document.querySelector("#audioPlayer");
+      const playlist = document.querySelector("#playlist");
+      const trackCards = document.querySelector("#trackCards");
+      const releaseTimeline = document.querySelector("#releaseTimeline");
+      const currentTrack = document.querySelector("#currentTrack");
+      const playPauseButton = document.querySelector("#playPauseButton");
+      const prevTrackButton = document.querySelector("#prevTrackButton");
+      const nextTrackButton = document.querySelector("#nextTrackButton");
+      const trackProgress = document.querySelector("#trackProgress");
+      const timecode = document.querySelector("#timecode");
+      const playerCard = document.querySelector(".player-card");
+      let playingIndex = -1;
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = header.classList.toggle("menu-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          header.classList.remove("menu-open");
+          menuButton.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      const activateCurrentSection = () => {
+        let current = null;
+        sections.filter(Boolean).forEach((section) => {
+          if (section.getBoundingClientRect().top <= 120) {
+            current = section;
+          }
+        });
+
+        navLinks.forEach((link) => {
+          const section = document.querySelector(link.getAttribute("href"));
+          link.classList.toggle("active", section === current);
+        });
+      };
+
+      activateCurrentSection();
+      window.addEventListener("scroll", activateCurrentSection, { passive: true });
+
+      const cleanTrackTitle = (name) =>
+        name
+          .split(/[\\/]/)
+          .pop()
+          .replace(/\.[^/.]+$/, "")
+          .replace(/[-_]+/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+
+      const configuredTracks = Array.isArray(window.CATE_TRACKS) ? window.CATE_TRACKS : [];
+      const musicTracks = configuredTracks
+        .filter((track) => track && track.src)
+        .map((track, index) => ({
+          title: track.title || cleanTrackTitle(track.src) || `Track ${index + 1}`,
+          artist: track.artist || "CATE",
+          duration: track.duration || "--:--",
+          year: track.year || "2026",
+          type: track.type || "Music",
+          src: track.src,
+        }));
+
+      const formatTime = (seconds) => {
+        if (!Number.isFinite(seconds)) {
+          return "0:00";
+        }
+
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        return `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+      };
+
+      const updatePlaybackUi = () => {
+        const track = musicTracks[playingIndex];
+        const hasPlayableTrack = Boolean(track?.src);
+        const duration = audioPlayer.duration || 0;
+        const current = audioPlayer.currentTime || 0;
+
+        playPauseButton.disabled = !hasPlayableTrack;
+        prevTrackButton.disabled = playingIndex <= 0;
+        nextTrackButton.disabled = playingIndex < 0 || playingIndex >= musicTracks.length - 1;
+        trackProgress.disabled = !hasPlayableTrack || !duration;
+        playPauseButton.textContent = audioPlayer.paused ? "▶" : "Ⅱ";
+        playPauseButton.setAttribute("aria-label", audioPlayer.paused ? "Play" : "Pause");
+        trackProgress.value = duration ? String(Math.round((current / duration) * 1000)) : "0";
+        timecode.textContent = `${formatTime(current)} / ${duration ? formatTime(duration) : track?.duration || "0:00"}`;
+      };
+
+      const renderPlaylist = () => {
+        playlist.innerHTML = "";
+
+        if (!musicTracks.length) {
+          playlist.innerHTML = '<p class="playlist-empty">No track</p>';
+          currentTrack.textContent = "No track";
+          updatePlaybackUi();
+          return;
+        }
+
+        musicTracks.forEach((track, index) => {
+          const item = document.createElement("button");
+          const trackNumber = document.createElement("span");
+          const trackCopy = document.createElement("span");
+          const trackTitle = document.createElement("span");
+          const trackArtist = document.createElement("span");
+          const trackDuration = document.createElement("span");
+
+          item.type = "button";
+          item.className = index === playingIndex ? "is-playing" : "";
+          trackNumber.className = "playlist-index";
+          trackNumber.textContent = String(index + 1).padStart(2, "0");
+          trackCopy.className = "playlist-copy";
+          trackTitle.className = "playlist-title";
+          trackTitle.textContent = track.title;
+          trackArtist.className = "playlist-artist";
+          trackArtist.textContent = track.artist;
+          trackDuration.className = "playlist-size";
+          trackDuration.textContent = track.duration;
+          trackCopy.append(trackTitle, trackArtist);
+          item.append(trackNumber, trackCopy, trackDuration);
+          item.addEventListener("click", () => playTrack(index));
+          playlist.appendChild(item);
+        });
+      };
+
+      const renderTrackCards = () => {
+        const coverNames = ["one", "two", "three", "four"];
+        trackCards.innerHTML = "";
+        releaseTimeline.innerHTML = "";
+
+        if (!musicTracks.length) {
+          return;
+        }
+
+        musicTracks.slice(0, 6).forEach((track, index) => {
+          const article = document.createElement("article");
+          article.className = "track";
+          article.innerHTML = `
+            <div class="cover ${coverNames[index % coverNames.length]}" aria-hidden="true"></div>
+            <div class="track-body">
+              <h3></h3>
+              <p></p>
+              <div class="tag-row">
+                <span class="tag"></span>
+                <span class="tag"></span>
+              </div>
+            </div>
+          `;
+
+          article.querySelector("h3").textContent = track.title;
+          article.querySelector("p").textContent = track.artist;
+          const tags = article.querySelectorAll(".tag");
+          tags[0].textContent = track.type;
+          tags[1].textContent = track.duration;
+          trackCards.appendChild(article);
+        });
+
+        const timelineBlock = document.createElement("div");
+        timelineBlock.className = "timeline-block";
+        const timelineTitle = document.createElement("h3");
+        const timelineList = document.createElement("ul");
+        timelineTitle.textContent = musicTracks[0].year || "2026";
+        musicTracks.forEach((track) => {
+          const item = document.createElement("li");
+          item.textContent = track.title;
+          timelineList.appendChild(item);
+        });
+        timelineBlock.append(timelineTitle, timelineList);
+        releaseTimeline.appendChild(timelineBlock);
+      };
+
+      const playTrack = (index) => {
+        const track = musicTracks[index];
+        if (!track) {
+          return;
+        }
+
+        playingIndex = index;
+        currentTrack.textContent = track.title;
+        renderPlaylist();
+
+        if (!track.src) {
+          audioPlayer.removeAttribute("src");
+          audioPlayer.load();
+          updatePlaybackUi();
+          return;
+        }
+
+        audioPlayer.src = track.src;
+        const playPromise = audioPlayer.play();
+        if (playPromise) {
+          playPromise.catch(() => {});
+        }
+        updatePlaybackUi();
+      };
+
+      playPauseButton.addEventListener("click", () => {
+        if (playingIndex < 0 && musicTracks.length) {
+          playTrack(0);
+          return;
+        }
+
+        if (audioPlayer.paused) {
+          const playPromise = audioPlayer.play();
+          if (playPromise) {
+            playPromise.catch(() => {});
+          }
+        } else {
+          audioPlayer.pause();
+        }
+      });
+
+      prevTrackButton.addEventListener("click", () => {
+        if (playingIndex > 0) {
+          playTrack(playingIndex - 1);
+        }
+      });
+
+      nextTrackButton.addEventListener("click", () => {
+        if (playingIndex < musicTracks.length - 1) {
+          playTrack(playingIndex + 1);
+        }
+      });
+
+      trackProgress.addEventListener("input", () => {
+        if (!audioPlayer.duration) {
+          return;
+        }
+
+        audioPlayer.currentTime = (Number(trackProgress.value) / 1000) * audioPlayer.duration;
+        updatePlaybackUi();
+      });
+
+      audioPlayer.addEventListener("ended", () => {
+        const nextIndex = playingIndex + 1;
+        if (nextIndex < musicTracks.length) {
+          playTrack(nextIndex);
+        } else {
+          audioPlayer.pause();
+          audioPlayer.currentTime = 0;
+          updatePlaybackUi();
+        }
+      });
+
+      audioPlayer.addEventListener("loadedmetadata", updatePlaybackUi);
+      audioPlayer.addEventListener("timeupdate", updatePlaybackUi);
+      audioPlayer.addEventListener("play", updatePlaybackUi);
+      audioPlayer.addEventListener("pause", updatePlaybackUi);
+
+      audioPlayer.addEventListener("error", () => {
+        const track = musicTracks[playingIndex];
+        if (track) {
+          currentTrack.textContent = `${track.title} (audio file missing)`;
+        }
+        updatePlaybackUi();
+      });
+
+      playerCard.addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+      });
+
+      if (musicTracks.length) {
+        playingIndex = 0;
+        currentTrack.textContent = musicTracks[0].title;
+        if (musicTracks[0].src) {
+          audioPlayer.src = musicTracks[0].src;
+        }
+      } else {
+        currentTrack.textContent = "No track";
+      }
+
+      playerCard.classList.toggle("is-empty", !musicTracks.length);
+      renderPlaylist();
+      renderTrackCards();
+      updatePlaybackUi();
+    </script>
+  </body>
+</html>
