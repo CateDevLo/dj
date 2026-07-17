@@ -4,7 +4,7 @@ window.CATE_TRACKS = [
     artist: "WhoisCatee",
     duration: "2:39:16",
     year: "2025",
-    type: "Original",
+    type: "House",
     src: "https://archive.org/download/live-mixset-1/Live%20MIXSET%20%231.mp3",
   },
   {
@@ -12,7 +12,7 @@ window.CATE_TRACKS = [
     artist: "WhoisCatee",
     duration: "1:29:49",
     year: "2025",
-    type: "Original",
+    type: "House",
     src: "assets/music/MixSet2.mp3",
   },
   {
@@ -20,7 +20,7 @@ window.CATE_TRACKS = [
     artist: "WhoisCatee",
     duration: "1:53:09",
     year: "2025",
-    type: "Original",
+    type: "House",
     src: "https://ia600108.us.archive.org/25/items/live-set-2/Live%20Set%20%232.mp3",
   },
   {
@@ -28,7 +28,7 @@ window.CATE_TRACKS = [
     artist: "WhoisCatee",
     duration: "1:59:53",
     year: "2025",
-    type: "Original",
+    type: "Club House",
     src: "https://ia601407.us.archive.org/6/items/live-set-3/Live%20Set%20%233.mp3",
   },
   {
@@ -36,7 +36,15 @@ window.CATE_TRACKS = [
     artist: "WhoisCatee",
     duration: "2:01:54",
     year: "2025",
-    type: "Original",
+    type: "Club House",
     src: "https://ia601904.us.archive.org/26/items/live-set-4/Live%20Set%20%234.mp3",
+  },
+  {
+    title: "Chill #1",
+    artist: "WhoisCatee",
+    duration: "55:32",
+    year: "2026",
+    type: "HouseLak",
+    src: "assets/music/Chill house #1.mp3",
   },
 ];
