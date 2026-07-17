@@ -15,4 +15,28 @@ window.CATE_TRACKS = [
     type: "Original",
     src: "assets/music/MixSet2.mp3",
   },
+  {
+    title: "Live Set #2",
+    artist: "WhoisCatee",
+    duration: "1:53:09",
+    year: "2025",
+    type: "Original",
+    src: "https://ia600108.us.archive.org/25/items/live-set-2/Live%20Set%20%232.mp3",
+  },
+  {
+    title: "Live Set #3",
+    artist: "WhoisCatee",
+    duration: "1:59:53",
+    year: "2025",
+    type: "Original",
+    src: "https://ia601407.us.archive.org/6/items/live-set-3/Live%20Set%20%233.mp3",
+  },
+  {
+    title: "Live Set #4",
+    artist: "WhoisCatee",
+    duration: "2:01:54",
+    year: "2025",
+    type: "Original",
+    src: "https://ia601904.us.archive.org/26/items/live-set-4/Live%20Set%20%234.mp3",
+  },
 ];
