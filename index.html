@@ -768,7 +768,7 @@
       .timeline {
         margin-top: 22px;
         display: grid;
-        grid-template-columns: minmax(280px, 420px);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
         gap: 16px;
       }
 
@@ -1699,18 +1699,29 @@ Từ những ảnh hưởng điện tử ban đầu đến các bản phát hàn
           trackCards.appendChild(article);
         });
 
-        const timelineBlock = document.createElement("div");
-        timelineBlock.className = "timeline-block";
-        const timelineTitle = document.createElement("h3");
-        const timelineList = document.createElement("ul");
-        timelineTitle.textContent = musicTracks[0].year || "2026";
-        musicTracks.forEach((track) => {
-          const item = document.createElement("li");
-          item.textContent = track.title;
-          timelineList.appendChild(item);
+        const tracksByYear = musicTracks.reduce((groups, track) => {
+          const year = track.year || "2026";
+          if (!groups.has(year)) {
+            groups.set(year, []);
+          }
+          groups.get(year).push(track);
+          return groups;
+        }, new Map());
+
+        tracksByYear.forEach((tracks, year) => {
+          const timelineBlock = document.createElement("div");
+          timelineBlock.className = "timeline-block";
+          const timelineTitle = document.createElement("h3");
+          const timelineList = document.createElement("ul");
+          timelineTitle.textContent = year;
+          tracks.forEach((track) => {
+            const item = document.createElement("li");
+            item.textContent = track.title;
+            timelineList.appendChild(item);
+          });
+          timelineBlock.append(timelineTitle, timelineList);
+          releaseTimeline.appendChild(timelineBlock);
         });
-        timelineBlock.append(timelineTitle, timelineList);
-        releaseTimeline.appendChild(timelineBlock);
       };
 
       const playTrack = (index) => {
