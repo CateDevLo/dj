@@ -1,12 +1,10 @@
 window.CATE_TRACKS = [
-  // Put your audio files in this same folder, then add them here.
-  // Example:
-  // {
-  //   title: "Duality",
-  //   artist: "CATE",
-  //   duration: "04:20",
-  //   year: "2026",
-  //   type: "Original",
-  //   src: "assets/music/duality.mp3",
-  // },
+  {
+    title: "Live MIXSET #1",
+    artist: "WhoisCatee",
+    duration: "2:39:16",
+    year: "2026",
+    type: "Original",
+    src: "https://github.com/CateDevLo/dj/releases/download/music/Live.MIXSET.1.mp3",
+  },
 ];
