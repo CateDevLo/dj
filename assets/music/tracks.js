@@ -42,9 +42,9 @@ window.CATE_TRACKS = [
   {
     title: "Chill #1",
     artist: "WhoisCatee",
-    duration: "55:32",
+    duration: "59:52",
     year: "2026",
     type: "HouseLak",
-    src: "assets/music/Chill house #1.mp3",
+    src: "assets/music/Chillhouse1.mp3",
   },
 ];
