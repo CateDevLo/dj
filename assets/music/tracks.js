@@ -8,11 +8,11 @@ window.CATE_TRACKS = [
     src: "https://github.com/CateDevLo/dj/releases/download/music/Live.MIXSET.1.mp3",
   },
   {
-    title: "Cate Trance Set",
+    title: "Live Set #1",
     artist: "WhoisCatee",
-    duration: "58:30",
-    year: "2026",
-    type: "Trance",
+    duration: "1:29:49",
+    year: "2025",
+    type: "Original",
     src: "assets/music/MixSet2.mp3",
   },
 ];
